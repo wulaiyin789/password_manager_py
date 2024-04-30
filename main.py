@@ -32,7 +32,11 @@ class PasswordManagerApp:
 
         # Decrypt and verify the master password
         decrypted_password = decrypt_master_password(encrypted_password, iv, master_password, salt)
-        if decrypted_password == master_password:
+        
+        entered_password = self.entry_password.get()
+        
+        print(decrypted_password, entered_password)
+        if decrypted_password == entered_password:
             print("Master password decrypted successfully!")
             self.show_email_input()
         else:
